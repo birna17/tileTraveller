@@ -10,8 +10,10 @@ victory = False
 print("You can travel: (N)orth.")
 
 position = (x,y)
-def coord_moves(move):
+def coord_moves(x,y):
     """Defines which way you will travel depending on your input"""
+    x=1
+    y=1
     if move == "n" or move == "N":
         y += 1
     elif move == "s" or move == "S":
