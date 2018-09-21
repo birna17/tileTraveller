@@ -1,7 +1,7 @@
 #Which implementation was easier and why ?
 #Which implementatio is more readable and why ?
 #Which problems in the first impolementations were you able to solve with the later implementation?
-  
+
 
 x = 1
 y = 1
@@ -10,10 +10,8 @@ victory = False
 print("You can travel: (N)orth.")
 
 position = (x,y)
-def coord_moves(x,y):
+def check(move,x,y):
     """Defines which way you will travel depending on your input"""
-    x=1
-    y=1
     if move == "n" or move == "N":
         y += 1
     elif move == "s" or move == "S":
@@ -24,44 +22,33 @@ def coord_moves(x,y):
         x -= 1
    
     
-def game_rules(valid_direction):
+def game_rules(v):
     """All possible outcomes from player's moves, under surtain conditions"""
+    
     if position == (1, 1):
-        valid_direction = "nN" 
+        v = "nN" 
         print("You can travel: (N)orth.")
     elif position == (1, 2):
-        valid_direction= "nNeEsS"
+        v = "nNeEsS"
         print("You can travel: (N)orth or (E)ast or (S)outh.")
     elif position == (1, 3):
-        valid_direction= "eEsS" 
+        v = "eEsS" 
         print("You can travel: (E)ast or (S)outh.")
     elif position == (2, 1):
-        valid_direction= "nN" 
+        v = "nN" 
         print("You can travel: (N)orth.")
     elif position == (2, 2):
-        valid_direction= "wWsS"
+        v = "wWsS"
         print("You can travel: (S)outh or (W)est.")
     elif position == (2, 3): 
-        valid_direction= "eEwW"
+        v = "eEwW"
         print("You can travel: (E)ast or (W)est.")
-    elif position == (3, 1):
-        print("Victory!")
-        victory = True
     elif position == (3, 2):
-        valid_direction= "nNsS" 
+        v = "nNsS" 
         print("You can travel: (N)orth or (S)outh.")
     elif position == (3, 3):
-        valid_direction= "sSwW"
+        v = "sSwW"
         print("You can travel: (S)outh or (W)est.")
-
-
-
-
-
-while not victory:
-    direction = input("Direction: ")
-    if not direction in valid_direction: 
-        print("Not a valid direction!")
-    else:
-        coord_moves(direction)
-        game_rules(valid_direction)
+# elif position == (3, 1):
+        #print("Victory!")
+        #victory = True
